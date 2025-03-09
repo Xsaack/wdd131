@@ -1,0 +1,108 @@
+/* base.css */
+body {
+    font-family: 'Your Google Font', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #444;
+    padding: 0.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+body {
+    font-family: 'Your Google Font', sans-serif;
+}
+
+/* hasta aqui es lo basico */
+/* Estilos para el contenedor principal */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Dos columnas: la primera más ancha, la segunda más estrecha */
+    gap: 1rem; /* Espacio entre los cuadros */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 1rem;
+}
+
+/* Estilos para el cuadro principal (que contiene las dos secciones) */
+.main-box {
+    background-color: #f9f9f9; /* Color de fondo */
+    border: 1px solid #ddd; /* Borde */
+    padding: 1rem; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilos para el cuadro lateral */
+.side-box {
+    background-color: #f1f1f1; /* Color de fondo */
+    border: 1px solid #ddd; /* Borde */
+    padding: 1rem; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilos para las tarjetas dentro del cuadro principal */
+.card {
+    margin-bottom: 1rem; /* Espacio entre las tarjetas */
+}
+
+/* Estilos para el contenido de cada sección (párrafo e imagen) */
+.content {
+    display: flex; /* Usar Flexbox para organizar el contenido */
+    align-items: center; /* Centrar verticalmente */
+    gap: 1rem; /* Espacio entre el párrafo y la imagen */
+}
+
+.content p {
+    flex: 1; /* El párrafo ocupa el espacio disponible */
+}
+
+.content img {
+    width: 150px; /* Ancho fijo para la imagen */
+    height: 150px; /* Altura fija para la imagen */
+    object-fit: cover; /* Mantener relación de aspecto */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+}
+
+/* Estilos para los títulos de las cajas */
+.main-box h2, .side-box h2 {
+    background-color: #4CAF50; /* Color de la franja (verde) */
+    color: white; /* Color del texto */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    margin: -1rem -1rem 1rem -1rem; /* Ajuste para que la franja ocupe todo el ancho */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+    text-align: center; /* Centrar el texto */
+}
