@@ -8,5 +8,3 @@ if (lastModifiedElement) {
 
 
 
-
-
