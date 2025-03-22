@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Web Fundamentals</title>
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals, Isaac Gaxiola Franco, is a course that introduces students to the basic principles of web development, focusing on creating dynamic, interactive websites using technologies like HTML, CSS, and JavaScript. It covers essential skills for building responsive and user-friendly web pages. Web Development, dynamic Websites, HTML5, CSS, JavaScript, Responsive Design, Interactive Elements, Web Forms, Backend Integration, Client-Side Scripting,  ">
+    <meta name="author" content="Sergio Coria Maya">
+    <link rel="stylesheet" href="styles/place.css"> 
+    <link rel="stylesheet" href="styles/place-large.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="scripts/place.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <h1>Madagascar</h1>
+    </header>
+    <main>
+        <picture>
+            <!-- Imagen WebP para pantallas móviles (<= 767px) -->
+            <source media="(max-width: 767px)" 
+                    srcset="images/lemur.webp 800w"
+                    sizes="100vw">
+            
+            <!-- Imagen WebP por defecto para pantallas más grandes -->
+            <source media="(min-width: 768px)"            
+             srcset="images/lemur-large.webp 1200w, 
+            images/lemur.webp 800w" sizes="(max-width: 1200px) 100vw, 
+           (max-width: 800px) 100vw, 
+           1200px">
+            
+            <!-- Imagen por defecto en caso de que el navegador no soporte WebP -->
+            <img id="lemurImage" 
+                 src="images/lemur-large.jpg" 
+                 srcset="images/lemur-large.jpg 1200w, 
+                         images/lemur.jpg 800w"
+                 sizes="(max-width: 1200px) 100vw, 
+                        (max-width: 800px) 100vw, 
+                        1200px"
+                 alt="lemur" class="lemur-image">
+        </picture>
+        <div class="info-box">
+            <h2>Data</h2>
+            <p><strong>Area:</strong> 587,041 sq km</p>
+            <p><strong>Population:</strong> 27,691,018</p>
+            <p><strong>Capital:</strong> Antananarivo</p>
+            <p><strong>Languages:</strong> Malagasy, French</p>
+            <p><strong>Currency:</strong> Malagasy Ariary</p>
+            <p><strong>Time Zone:</strong> UTC+3</p>
+            <p><strong>Calling Code:</strong> +261</p>
+            <p><strong>Internet TLD:</strong> .mg</p>
+        </div>
+        <div class="info-box2">
+            <h2><img src="images/weather.svg" alt="Weather Icon" class="weather-icon">
+                Weather</h2>
+            <p><strong>Temperature:</strong> 10°</p>
+            <p><strong>Conditions:</strong> Partly Cloudy</p>
+            <p><strong>Wind:</strong> 5 km/h</p>
+            <p><strong>Wind Chill:</strong> 9.8°C</p>
+        </div>
+    </main>
+    <footer>
+        <p id="year">© Isaac Gaxiola Franco | Mazatlan, Sinaloa |</p>
+        <p id="lastModified" class="last-modified"></p> 
+    </footer>
+</body>
+</html>
