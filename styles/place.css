@@ -1,95 +1,90 @@
-/* Estilos para dispositivos móviles (menos de 767px) */
-@media (max-width: 767px) {
-
-    header {
-        position: relative; /* Asegura que los elementos dentro del header estén en flujo normal */
-        background-color: red; /* Fondo rojo */
-        padding: 1px 0; /* Aumenta el tamaño del header (espaciado arriba y abajo) */
-        text-align: center; /* Centra el texto horizontalmente */
-        color: white; /* Texto blanco */
-        font-size: 2rem; /* Tamaño de fuente más grande */
-        z-index: 1000; /* Asegura que el header esté encima de otros elementos */
-        border-bottom: 15px solid green; /* Línea verde de 3px debajo del header */
-    
-    }
-    /* Diseño general para main */
-    main {
-        margin: 0;
-        display: flex;
-        flex-direction: column; /* Las cajas estarán en una columna */
-        align-items: center;  /* Centra horizontalmente */
-        justify-content: flex-start; /* Alinea al inicio (parte superior) */
-    }
-
-    /* Estilo de la imagen en dispositivos móviles */
-    .lemur-image {
-        height: 100%; /* Ocupa todo el alto del contenedor */
-        width: 100%; /* Ocupa todo el ancho del contenedor */
-        object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
-        display: block;
-        margin-bottom: 20px; /* Espacio debajo de la imagen */
-    }
-
-    .image-container {
-        width: 100%; /* Ancho del contenedor */
-        height: 400px; /* Altura del contenedor (ajusta según tus necesidades) */
-        overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
-    }
-
-    /* Estilos para las cajas info-box e info-box2 en móviles */
-    .info-box, .info-box2 {
-        position: relative; /* Cambia de absolute a relative */
-        background-color: #f4f4f4;
-        margin-top: 20px; /* Espaciado entre las cajas */
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        width: 80%; /* Las cajas ocupan el 80% del ancho */
-        max-width: 400px; /* Limita el ancho máximo */
-        padding: 20px;
-        box-sizing: border-box; /* Incluye padding dentro del tamaño de la caja */
-        overflow: hidden; /* Evita que el contenido se desborde */
-    }
-
-    .info-box h2, .info-box2 h2 {
-        margin-top: 0;
-        color: #006400;
-    }
-
-
-    h2 {
-        position: relative; /* Establece un contexto para posicionar la imagen */
-        display: inline-block; /* Asegura que el encabezado se comporte como un bloque pero permita la disposición de otros elementos en línea */
-     
-    }
-    
-    .weather-icon {
-        position: absolute; /* La imagen se coloca de manera absoluta dentro de su contenedor */
-        top: 100%; /* La imagen se coloca justo debajo del h2 */
-        left: 0; /* Alinea la imagen a la izquierda del contenedor */
-        width: 20px; /* Ajusta el tamaño de la imagen */
-        height: auto; /* Mantiene la proporción */
-        margin-top: 5px; /* Agrega un poco de espacio entre el texto y la imagen */
-    }
-
-
-
-
-
-
-    footer {
-        position: relative;
-        background-color: red;
-        color: white; /* Texto blanco */
-        text-align: center; /* Centra el texto horizontalmente */
-        margin: 0;
-        padding: 10px 0;
-
-    
-    
-    }
-    
-    footer p {
-        margin: 0; /* Elimina el margen predeterminado */
-        font-size: 1rem; /* Tamaño de fuente (ajustable) */
-    }
-}
+:root {
+    --primary-color: red; /* Variable para el color primario (rojo) */
+    --secondary-color: green; /* Variable para el color secundario (verde) */
+  }
+  
+  /* Estilos para dispositivos móviles (menos de 767px) */
+  @media (max-width: 767px) {
+  
+      header {
+          position: relative; /* Asegura que los elementos dentro del header estén en flujo normal */
+          background-color: var(--primary-color); /* Usa la variable para el fondo rojo */
+          padding: 1px 0; /* Aumenta el tamaño del header (espaciado arriba y abajo) */
+          text-align: center; /* Centra el texto horizontalmente */
+          color: white; /* Texto blanco */
+          font-size: 2rem; /* Tamaño de fuente más grande */
+          z-index: 1000; /* Asegura que el header esté encima de otros elementos */
+          border-bottom: 15px solid var(--secondary-color); /* Usa la variable para la línea verde */
+      }
+  
+      /* Diseño general para main */
+      main {
+          margin: 0;
+          display: flex;
+          flex-direction: column; /* Las cajas estarán en una columna */
+          align-items: center;  /* Centra horizontalmente */
+          justify-content: flex-start; /* Alinea al inicio (parte superior) */
+      }
+  
+      /* Estilo de la imagen en dispositivos móviles */
+      .lemur-image {
+          height: 100%; /* Ocupa todo el alto del contenedor */
+          width: 100%; /* Ocupa todo el ancho del contenedor */
+          object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+          display: block;
+          margin-bottom: 20px; /* Espacio debajo de la imagen */
+      }
+  
+      .image-container {
+          width: 100%; /* Ancho del contenedor */
+          height: 400px; /* Altura del contenedor (ajusta según tus necesidades) */
+          overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+      }
+  
+      /* Estilos para las cajas info-box e info-box2 en móviles */
+      .info-box, .info-box2 {
+          position: relative; /* Cambia de absolute a relative */
+          background-color: #f4f4f4;
+          margin-top: 20px; /* Espaciado entre las cajas */
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          width: 80%; /* Las cajas ocupan el 80% del ancho */
+          max-width: 400px; /* Limita el ancho máximo */
+          padding: 20px;
+          box-sizing: border-box; /* Incluye padding dentro del tamaño de la caja */
+          overflow: hidden; /* Evita que el contenido se desborde */
+      }
+  
+      .info-box h2, .info-box2 h2 {
+          margin-top: 0;
+          color: #006400;
+      }
+  
+      h2 {
+          position: relative; /* Establece un contexto para posicionar la imagen */
+          display: inline-block; /* Asegura que el encabezado se comporte como un bloque pero permita la disposición de otros elementos en línea */
+      }
+  
+      .weather-icon {
+          position: absolute; /* La imagen se coloca de manera absoluta dentro de su contenedor */
+          top: 100%; /* La imagen se coloca justo debajo del h2 */
+          left: 0; /* Alinea la imagen a la izquierda del contenedor */
+          width: 20px; /* Ajusta el tamaño de la imagen */
+          height: auto; /* Mantiene la proporción */
+          margin-top: 5px; /* Agrega un poco de espacio entre el texto y la imagen */
+      }
+  
+      footer {
+          position: relative;
+          background-color: var(--primary-color); /* Usa la variable para el fondo rojo */
+          color: white; /* Texto blanco */
+          text-align: center; /* Centra el texto horizontalmente */
+          margin: 0;
+          padding: 10px 0;
+      }
+  
+      footer p {
+          margin: 0; /* Elimina el margen predeterminado */
+          font-size: 1rem; /* Tamaño de fuente (ajustable) */
+      }
+  }
