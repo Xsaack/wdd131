@@ -1,0 +1,54 @@
+Website Proposal for Home Cleaning Services
+
+Website Subject  
+"Sparkle Home Cleaning" - A professional website for a residential cleaning service offering quick, efficient, 
+and customized cleaning solutions.  
+
+Planned Website Content  
+
+1. Homepage:  
+   - Attractive visual presentation with images of clean homes  
+   - Brief introduction to services  
+
+2. Services:  
+   - Regular weekly/bi-weekly cleaning  
+   - Deep cleaning  
+   - Post-construction cleaning  
+   - Move-in/move-out cleaning  
+   - Specialty services (windows, carpets)  
+
+3. About Us:  
+   - Company philosophy  
+   - Professional team  
+   - Certifications and eco-friendly products used  
+
+4. Testimonials:  
+   - Verified reviews from satisfied customers  
+   - Before/after photos (with client consent)  
+
+5. Contact:  
+   - Contact form  
+   - Phone, email, and potential live chat  
+   - Service area map  
+
+6. Blog/Tips:  
+   - Home maintenance articles  
+   - DIY cleaning tips between professional services  
+
+Reasons for Choosing This Subject  
+
+1. Practical Relevance: Cleaning services are always in demand, and this website could genuinely help a local business.  
+
+2. Design Opportunities: Allows for a visually appealing site with before/after contrast images.  
+
+3. Interesting Functionality:  
+   - Potential to implement a JavaScript-powered quote calculator  
+   - Online booking system  
+   - Interactive results gallery  
+
+4. Personal Experience: I have some knowledge of the industry, enabling me to create realistic and useful content.  
+
+5. Responsive Design: Essential for customers to easily access and book services from mobile devices.  
+
+This project will allow me to demonstrate proficiency in valid HTML/CSS, responsive design, and JavaScript functionalities
+such as interactive forms, calculators, and possibly a simple booking system.
