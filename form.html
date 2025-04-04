@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Share your product experience by completing our review form. Help us improve our products with your valuable feedback.">
+    <meta name="author" content="Isaac Gaxiola Franco">
+    <title>Product Review Form</title>
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+    <h1>Product Review Form</h1>
+    
+    <form method="get" action="review.html">
+        <div class="form-group">
+            <label for="product" class="required">Product Name</label>
+            <select id="product" name="product" required>
+                <option value="" disabled selected>Select a Product...</option>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Overall Rating</label>
+            <div class="rating">
+                <label><input type="radio" name="rating" value="1" required> ☆</label>
+                <label><input type="radio" name="rating" value="2"> ☆☆</label>
+                <label><input type="radio" name="rating" value="3"> ☆☆☆</label>
+                <label><input type="radio" name="rating" value="4"> ☆☆☆☆</label>
+                <label><input type="radio" name="rating" value="5"> ☆☆☆☆☆</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="installation-date" class="required">Date of Installation</label>
+            <input type="date" id="installation-date" name="installation-date" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Useful Features (check all that apply)</label>
+            <div class="features">
+                <label><input type="checkbox" name="features" value="ease-of-use"> Ease of Use</label>
+                <label><input type="checkbox" name="features" value="performance"> Performance</label>
+                <label><input type="checkbox" name="features" value="design"> Design</label>
+                <label><input type="checkbox" name="features" value="features"> Features</label>
+                <label><input type="checkbox" name="features" value="price"> Price</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="review">Written Review</label>
+            <textarea id="review" name="review"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username">
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Submit Review">
+        </div>
+    </form>
+    
+    <footer>
+        <p>&copy; <span id="current-year"></span>© 🍕 Isaac Gaxiola Franco 🍕 | Mazatlan, Sinaloa |</p>
+    </footer>
+    
+    <script src="scripts/form.js"></script>
+</body>
+</html>

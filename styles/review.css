@@ -1,0 +1,8 @@
+/* Review confirmation page styles */
+.confirmation {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+}
