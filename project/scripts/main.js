@@ -2,79 +2,84 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.main-nav ul');
-    
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking on a link
     const navLinks = document.querySelectorAll('.main-nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
-    });
+        
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
     
     // Header scroll effect
     const header = document.querySelector('.main-header');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Testimonial Slider
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    let currentIndex = 0;
-    
-    function showTestimonial(index) {
-        testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        testimonials[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentIndex = index;
+    if (header) {
+        window.addEventListener('scroll', function() {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
     }
     
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showTestimonial(index));
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-        showTestimonial(currentIndex);
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        showTestimonial(currentIndex);
-    });
-    
-    // Auto-rotate testimonials
-    let testimonialInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        showTestimonial(currentIndex);
-    }, 5000);
-    
-    // Pause auto-rotation on hover
+    // Testimonial Slider
     const testimonialSlider = document.querySelector('.testimonial-slider');
-    testimonialSlider.addEventListener('mouseenter', () => {
-        clearInterval(testimonialInterval);
-    });
-    
-    testimonialSlider.addEventListener('mouseleave', () => {
-        testimonialInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % testimonials.length;
-            showTestimonial(currentIndex);
-        }, 5000);
-    });
+    if (testimonialSlider) {
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        let currentIndex = 0;
+        let testimonialInterval;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+        
+        function startAutoRotation() {
+            testimonialInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                showTestimonial(currentIndex);
+            }, 5000);
+        }
+        
+        if (dots.length) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showTestimonial(index));
+            });
+        }
+        
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                showTestimonial(currentIndex);
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                showTestimonial(currentIndex);
+            });
+        }
+        
+        startAutoRotation();
+        
+        // Pause auto-rotation on hover
+        testimonialSlider.addEventListener('mouseenter', () => {
+            clearInterval(testimonialInterval);
+        });
+        
+        testimonialSlider.addEventListener('mouseleave', startAutoRotation);
+    }
     
     // Form submission
     const quoteForm = document.getElementById('quoteForm');
@@ -82,18 +87,25 @@ document.addEventListener('DOMContentLoaded', function() {
         quoteForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                service: document.getElementById('service').value
+            };
             
-            // In a real application, you would send this data to your server
-            console.log('Form submitted:', { name, email, service });
+            if (!formData.name || !formData.email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
             
-            // Show success message
-            alert(`Thank you, ${name}! We've received your request for ${service} service. We'll contact you shortly at ${email}.`);
+            // Basic email validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
             
-            // Reset form
+            console.log('Form submitted:', formData);
+            alert(`Thank you, ${formData.name}! We've received your request for ${formData.service} service. We'll contact you shortly at ${formData.email}.`);
             quoteForm.reset();
         });
     }
@@ -108,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const headerHeight = document.querySelector('.main-header').offsetHeight;
+                const headerHeight = document.querySelector('.main-header')?.offsetHeight || 0;
                 const targetPosition = targetElement.offsetTop - headerHeight;
                 
                 window.scrollTo({
@@ -118,4 +130,63 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // FAQ Accordion Functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    
+    if (faqQuestions.length) {
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Toggle active class on item
+                item.classList.toggle('active');
+                
+                // Toggle answer visibility
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon?.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                } else {
+                    answer.style.maxHeight = 0;
+                    icon?.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                }
+                
+                // Close other open items
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        const otherItem = q.parentElement;
+                        const otherAnswer = q.nextElementSibling;
+                        const otherIcon = q.querySelector('i');
+                        otherItem.classList.remove('active');
+                        otherAnswer.style.maxHeight = 0;
+                        otherIcon?.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
+                });
+            });
+        });
+    }
+    
+    if (categoryBtns.length) {
+        // Filter by category
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(button => button.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const category = btn.dataset.category;
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.style.display = (category === 'all' || item.dataset.category === category) 
+                        ? 'block' 
+                        : 'none';
+                });
+            });
+        });
+        
+        // Initialize - show all general questions by default
+        const generalBtn = document.querySelector('.category-btn[data-category="general"]');
+        if (generalBtn) generalBtn.click();
+    }
 });
